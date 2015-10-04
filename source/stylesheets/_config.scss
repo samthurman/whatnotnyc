@@ -1,0 +1,20 @@
+// CONFIG
+// ===========
+
+// Set Theme Variables
+// -----------
+
+//color
+$color-background: #{"{{ theme.background_color }}"};
+$color-text: #{"{{ theme.text_color }}"};
+
+//text
+$font-text: #{"{{ theme.text_font | font_family }}"};
+$font-header: #{"{{ theme.header_font | font_family }}"};
+
+//images
+$img-url-badge: #{"{{ 'badge.png' | theme_image_url }}"};
+
+//margins + borders
+$marginSize: 20px;
+$border: 5px solid #000;

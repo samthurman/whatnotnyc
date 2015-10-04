@@ -1,0 +1,32 @@
+// PRODUCTS
+// ===========
+
+#home, #products {
+  .content {
+    ul {
+      list-style-type: none;
+      overflow: hidden;
+    }
+    .product {
+      box-sizing: border-box;
+      float: left;
+      padding-bottom: $marginSize;
+      padding-right: $marginSize;
+      max-width: 30%;
+      &:nth-child(3n+1) {
+        clear: left;
+      }
+    }
+    img {
+      display: block;
+      margin-bottom: $marginSize / 2;
+      max-width: 100%;
+    }
+    .pagination {
+      clear: both;
+    }
+    .pagination .disabled {
+      display: none;
+    }
+  }
+}

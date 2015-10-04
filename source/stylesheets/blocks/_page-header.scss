@@ -1,0 +1,14 @@
+// PAGE HEADER
+// ===========
+
+.page-header {
+  border-bottom: $border;
+  background: #fff;
+  font-family: $font-header;
+  padding: $marginSize;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-transform: uppercase;
+}
