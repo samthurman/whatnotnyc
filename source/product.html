@@ -1,16 +1,22 @@
-<section class="product_images">
-  <img src="{{ product.image | product_image_url }}" alt="Image of {{ product.name | escape }}" class="primary_image">
+
+<section class="product-images">
+  <div class="product-images__top">
+    <h1 class="product__header">{{ page.name }}</h1>
+    <img src="{{ product.image | product_image_url }}" alt="Image of {{ product.name | escape }}" class="product-images__image">
+  </div>
 
   {% if product.images.size > 1 %}
-  <ul class="unstyled">
+  <ul class="product-images__nav">
     {% for image in product.images %}
-    <li{% if forloop.first %} class="selected"{% endif %}><a href="{{ image | product_image_url }}"><img src="{{ image | product_image_url size:"thumb" }}" alt="Image of {{ product.name | escape }}"></a></li>
+    <li class="product-images__nav-item {% if forloop.first %} product-images__nav-item--selected {% endif %}">
+      <a class="product-images__nav-link" href="{{ image | product_image_url }}"><img class="product-images__nav-image" src="{{ image | product_image_url size:"thumb" }}" alt="Image of {{ product.name | escape }}"></a>
+    </li>
     {% endfor %}
   </ul>
   {% endif %}
 </section>
 
-<section>
+<section class="product-detail">
   <aside>
     {% case product.status %}
 
@@ -22,9 +28,9 @@
 
       {% when 'active' %}
         <h5>{{ product.default_price | money_with_sign }}{% if product.on_sale %} <em>On Sale{% endif %}</em></h5>
-        <h5>Availability</h5>
+        <!-- <h5>Availability</h5> -->
 
-        <ul class="unstyled availability">
+<!--         <ul class="availability">
           {% for option in product.options %}
           <li>
             {% unless product.has_default_option %}<span>{{ option.name }}</span>{% endunless %}
@@ -34,18 +40,18 @@
             </b>
           </li>
           {% endfor %}
-        </ul>
+        </ul> -->
 
-        <form method="post" action="/cart">
+        <form class="product__form" method="post" action="/cart">
           {% if product.has_default_option %}
           {{ product.option | hidden_option_input }}
           {% else %}
           <div>
-          {{ product.options_in_stock | options_select }}
+          {{ product.options_in_stock | options_radio }}
           </div>
           {% endif %}
 
-          <button name="submit" type="submit" title="Add to Cart">Add to Cart</button>
+          <button class="product__form-submit" name="submit" type="submit" title="Add to Cart">Add to Cart</button>
         </form>
     {% endcase %}
   </aside>

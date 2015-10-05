@@ -6,9 +6,26 @@
   background: #fff;
   font-family: $font-header;
   padding: $marginSize;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   text-transform: uppercase;
+  z-index: 200;
+  margin: 0;
+  height: 150px;
+  position: absolute;
+  top: 0;
+}
+
+.page-header__logo {
+  float: left;
+}
+
+.page-header__cart {
+  display: none;
+}
+
+.page-header__menu-toggle {
+  float: right;
+  height: 100px;
+  width: 100px;
+  background: black;
 }

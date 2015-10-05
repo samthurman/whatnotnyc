@@ -1,15 +1,18 @@
 {% paginate products from products.current by theme.products_per_page %}
 
 {% if products != blank %}
-<ul class="unstyled">
+<ul class="products">
   {% for product in products %}
-  <li class="{{ product.css_class }}">
-    <a href="{{ product.url }}">
-      <img alt="Image of {{ product.name | escape }}" src="{{ product.image | product_image_url size: theme.product_image_size }}">
-      <b>{{ product.name }}</b>
-      <p>{{ product.default_price | money_with_sign }}</p>
+  <li class="products__product">
+    <a class="products__product-link" href="{{ product.url }}">
+      <img class="products__product-img" alt="Image of {{ product.name | escape }}" src="{{ product.image | product_image_url size: theme.product_image_size }}">
+        <div class="products__product-description">
+        <span class="products__product-name">{{ product.name }}</span>
+        <span class="products__product-text">{{ product.description }}</span>
+      </div>
+      <span class="products__product-price">{{ product.default_price | money_with_sign }}</span>
       {% if product.on_sale %}
-      <em>On Sale</em>
+      <span class="products__product-sale">On Sale</span>
       {% endif %}
     </a>
   </li>
@@ -19,7 +22,7 @@
 {{ paginate | default_pagination }}
 
 {% else %}
-<p>No products found.</p>
+<span class="products__product-alert">No products found.</span>
 {% endif %}
 
 {% endpaginate %}

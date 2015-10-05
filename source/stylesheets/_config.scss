@@ -16,5 +16,40 @@ $font-header: #{"{{ theme.header_font | font_family }}"};
 $img-url-badge: #{"{{ 'badge.png' | theme_image_url }}"};
 
 //margins + borders
-$marginSize: 20px;
-$border: 5px solid #000;
+$marginSize: 20px !default;
+$border: 10px solid #000;
+
+//font sizes
+$text1: $text-1;
+$text2: $text-2;
+$text3: $text-3;
+
+// Mixins
+// -----------
+
+@mixin box{
+  padding: $space-4;
+  border: $border;
+  margin: 0 0 $space-6 0;
+  background: #fff;
+}
+
+@mixin box-full{
+  padding: $space-4;
+  margin: 0 0 $space-6 0;
+  box-shadow: 0 0 0 10px #000;
+  background: #fff;
+  width: 100%;
+}
+
+// BUTTONS
+// -----------
+@mixin button {
+  font-size: $text-1;
+  border: $border;
+  background: #fff;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 60px;
+  margin-bottom: $space-4;
+}

@@ -1,6 +1,24 @@
 // LAYOUT
 // ===========
 
-.content {
+.content-container {
   margin: 0 auto;
+  padding-top: 150px;
+  height: 100%;
+  overflow: auto;
+}
+
+.content-container__content {
+  margin-top: 80px;
+}
+
+.about-us__content,
+.contact__content {
+  border: $border;
+  padding: 20px;
+  width: 80%;
+  background: white;
+  font-size: $text3;
+  margin-left: auto;
+  margin-right: auto;
 }
